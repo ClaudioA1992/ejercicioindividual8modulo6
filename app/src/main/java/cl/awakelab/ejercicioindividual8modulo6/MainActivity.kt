@@ -10,9 +10,9 @@ import android.os.Bundle
 * [] 2 pantallas: Listado y detalle
 * [] Listado: RecyclewView + ViewHolder + Adapter
 * [] Detalle: RecyclerView + ViewHolder + Adapter
-* [] Data local y remote
-* [] Remote
-* [] Local
+* [x] Data local y remote
+* [x] Remote
+* [x] Local
 *
 * */
 
