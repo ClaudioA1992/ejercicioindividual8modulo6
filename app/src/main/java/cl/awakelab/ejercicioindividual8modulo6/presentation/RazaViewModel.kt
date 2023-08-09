@@ -12,6 +12,8 @@ class RazaViewModel(application: Application): AndroidViewModel(application) {
 
     private val repositorio: Repositorio
 
+    fun razaLiveData() = repositorio.obtenerRazasEntities()
+
     init {
         val api = ApiRetrofit.getRetrofitRaza()
         val razaDatabase = RazaDatabase.getDatabase(application).getRazaDao()

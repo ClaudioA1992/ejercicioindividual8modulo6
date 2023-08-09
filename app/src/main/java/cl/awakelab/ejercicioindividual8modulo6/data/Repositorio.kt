@@ -1,10 +1,13 @@
 package cl.awakelab.ejercicioindividual8modulo6.data
 
+import androidx.lifecycle.LiveData
 import cl.awakelab.ejercicioindividual8modulo6.data.local.RazaDao
 import cl.awakelab.ejercicioindividual8modulo6.data.local.RazaEntity
 import cl.awakelab.ejercicioindividual8modulo6.data.remote.RazaAPI
 
 class Repositorio(private val razaAPI: RazaAPI, private val razaDAO: RazaDao) {
+
+    fun obtenerRazasEntities(): LiveData<List<RazaEntity>> = razaDAO.selectRazas()
 
     suspend fun getRazas() {
         val response = razaAPI.getAllBreeds() // Acá llegan los datos
@@ -20,3 +23,4 @@ class Repositorio(private val razaAPI: RazaAPI, private val razaDAO: RazaDao) {
     }
 
 }
+

@@ -13,8 +13,8 @@ interface RazaDao {
     @Insert(onConflict=OnConflictStrategy.REPLACE)
     suspend fun insertRaza(raza: RazaEntity)
 
-    @Query("select * from tabla_razas order by raza desc")
+    @Query("select * from tabla_razas order by raza asc")
     fun selectRazas(): LiveData<List<RazaEntity>>
 
-
 }
+

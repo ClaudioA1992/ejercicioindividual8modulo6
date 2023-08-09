@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface RazaAPI {
 
-    @GET("list/all")
-    fun getAllBreeds(): Response<Raza>
+    @GET("breeds/list/all")
+    suspend fun getAllBreeds(): Response<Raza>
 
 }

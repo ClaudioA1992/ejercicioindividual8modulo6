@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ApiRetrofit {
 
     companion object {
-        private const val URL_BASE = "https://dog.ceo/api/breeds/"
+        private const val URL_BASE = "https://dog.ceo/api/"
         fun getRetrofitRaza(): RazaAPI {
             val mRetrofit = Retrofit.Builder()
                 .baseUrl(URL_BASE)
@@ -18,3 +18,4 @@ class ApiRetrofit {
     }
 
 }
+
