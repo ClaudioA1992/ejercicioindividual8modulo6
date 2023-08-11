@@ -1,8 +1,11 @@
 package cl.awakelab.ejercicioindividual8modulo6.presentation
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import cl.awakelab.ejercicioindividual8modulo6.R
 import cl.awakelab.ejercicioindividual8modulo6.data.local.RazaEntity
 import cl.awakelab.ejercicioindividual8modulo6.databinding.ItemRazaBinding
 
@@ -14,6 +17,11 @@ class AdapterRazas: RecyclerView.Adapter<AdapterRazas.ItemRazaViewHolder>() {
     class ItemRazaViewHolder(var viewBinding: ItemRazaBinding): RecyclerView.ViewHolder(viewBinding.root) {
         fun bind(raza: RazaEntity) {
             viewBinding.textViewRaza.text = raza.raza
+            var bundle: Bundle = Bundle()
+            bundle.putString("raza", raza.raza)
+            viewBinding.constraintLayoutItem.setOnClickListener {
+                Navigation.findNavController(viewBinding.root).navigate(R.id.action_listFragment_to_detailFragment, bundle)
+            }
         }
     }
 

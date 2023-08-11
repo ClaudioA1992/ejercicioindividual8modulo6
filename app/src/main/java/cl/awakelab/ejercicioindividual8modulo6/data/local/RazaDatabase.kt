@@ -8,7 +8,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteOpenHelper
 
-@Database(entities = [RazaEntity::class], version=1)
+@Database(entities = [RazaEntity::class, RazaDetalleEntity::class], version=1)
 abstract class RazaDatabase: RoomDatabase() {
 
     abstract fun getRazaDao(): RazaDao
