@@ -18,8 +18,8 @@ class Repositorio(private val razaAPI: RazaAPI, private val razaDAO: RazaDao) {
         if(response.isSuccessful) { // Llegaron los datos?
             val message = response.body()!!.message // Solo sacando la parte del message, sin status
             val keys = message.keys
-            keys.forEach {
-                var razaEntity = RazaEntity(it)
+            keys.forEach {raza ->
+                var razaEntity = raza.toRazaEntity()
                 razaDAO.insertRaza(razaEntity)
             }
         } else {
@@ -32,16 +32,14 @@ class Repositorio(private val razaAPI: RazaAPI, private val razaDAO: RazaDao) {
         val response = razaAPI.getDetailRace(raza)
         if(response.isSuccessful) {
             val message = response.body()!!.message
-            message.forEach {
-                val razaDetalle = RazaDetalleEntity(raza, it)
+            message.forEach {url ->
+                val razaDetalle = url.toEntity(raza)
                 razaDAO.insertRazaDetalle(razaDetalle)
             }
         } else {
             Log.e("Repositorio", response.errorBody().toString())
         }
     }
-
-
 
 }
 
